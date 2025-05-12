@@ -36,3 +36,4 @@ const typed = new Typed(".multiple-text", {
   delay: 1000,
   loop: true,
 });
+

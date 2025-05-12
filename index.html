@@ -5,12 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Site | www.sitesbyKhan.com</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="Site.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
     <header class="header">
         <a href="#" class="logo">Portfolio</a>
 
@@ -19,16 +24,15 @@
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
+            <a href="#cv">CV</a>
             <a href="#services">Services</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#contact">Contact</a>
         </nav>
-
     </header>
 
-
     <section class="home" id="home">
-        <div class="home-img">
+        <div>
             <img src="Assets/me.jpg" alt="" class="profile-img">
         </div>
         <div class="home-content">
@@ -39,23 +43,19 @@
                 Developer, I specialize in crafting seamless user experiences, harnessing the power of Firebase and APIs
                 to build innovative and intuitive applications.</p>
             <div class="social-media">
-                <a href="https://www.linkedin.com/in/hamad-anwar" target="_blank"><i class='bx bxl-linkedin'></i></a>
-                <a href="https://www.instagram.com/flutter.artist/" target="_blank"><i class='bx bxl-instagram'></i></a>
-                <a href="#"><i class='bx bxl-facebook'></i></a>
-                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="https://www.linkedin.com/in/roeun-chanthou-15a76334b/" target="_blank"><i
+                        class='bx bxl-linkedin'></i></a>
+                <a href="https://www.instagram.com/lyhu1401/" target="_blank"><i class='bx bxl-instagram'></i></a>
+                <a href="https://web.facebook.com/roeun.chanthou.2025" target="_blank"><i
+                        class='bx bxl-facebook'></i></a>
+                <a href="https://github.com/Roeun-Chanthou" target="_blank"><i class='bx bxl-github'></i></a>
             </div>
-
-            <button class="btn">Download CV</button>
         </div>
-
-
     </section>
-
 
     <section class="about" id="about">
         <div>
             <img src="Assets/me.jpg" alt="" class="profile-img">
-
         </div>
 
         <div class="about-content">
@@ -73,6 +73,155 @@
         </div>
     </section>
 
+    <!-- New CV Section -->
+    <section class="cv" id="cv">
+        <h2 class="heading">My <span>Curriculum Vitae</span></h2>
+
+        <div class="cv-container">
+            <!-- Education Section -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Education</h3>
+
+                <div class="cv-item">
+                    <h4>Bachelor of Software Engineering</h4>
+                    <p class="cv-date">2021 - Present</p>
+                    <p class="cv-location">University of Computer Science, Phnom Penh</p>
+                    <p class="cv-description">Focusing on mobile application development, database management systems,
+                        and software architecture.</p>
+                </div>
+
+                <div class="cv-item">
+                    <h4>High School Diploma</h4>
+                    <p class="cv-date">2018 - 2021</p>
+                    <p class="cv-location">Preah Monivong High School, Phnom Penh</p>
+                    <p class="cv-description">Graduated with honors, focusing on mathematics and computer science.</p>
+                </div>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Experience</h3>
+
+                <div class="cv-item">
+                    <h4>Flutter Developer Intern</h4>
+                    <p class="cv-date">June 2023 - December 2023</p>
+                    <p class="cv-location">Tech Solutions Cambodia, Phnom Penh</p>
+                    <ul class="cv-list">
+                        <li>Developed and maintained mobile applications using Flutter framework</li>
+                        <li>Integrated RESTful APIs and Firebase services</li>
+                        <li>Collaborated with UI/UX designers to implement responsive layouts</li>
+                        <li>Participated in code reviews and quality assurance</li>
+                    </ul>
+                </div>
+
+                <div class="cv-item">
+                    <h4>Freelance Mobile Developer</h4>
+                    <p class="cv-date">2022 - Present</p>
+                    <p class="cv-location">Remote</p>
+                    <ul class="cv-list">
+                        <li>Created custom Flutter applications for various clients</li>
+                        <li>Implemented state management solutions using GetX and Bloc</li>
+                        <li>Developed and integrated Firebase authentication and cloud storage</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Technical Skills</h3>
+
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Dart</span>
+                            <span class="skill-item">Java</span>
+                            <span class="skill-item">Python</span>
+                            <span class="skill-item">C++</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Frameworks & Libraries</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Flutter</span>
+                            <span class="skill-item">Firebase</span>
+                            <span class="skill-item">GetX</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Tools & Platforms</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">Android Studio</span>
+                            <span class="skill-item">VS Code</span>
+                            <span class="skill-item">Xcode</span>
+                            <span class="skill-item">Figma</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Database</h4>
+                        <div class="skill-items">
+                            <span class="skill-item">Firebase Firestore</span>
+                            <span class="skill-item">MySQL</span>
+                            <span class="skill-item">SQLite</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages Section -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Languages</h3>
+
+                <div class="language-container">
+                    <div class="language-item">
+                        <span class="language-name">Khmer</span>
+                        <div class="language-level">
+                            <div class="level-fill level-fill-100"></div>
+                        </div>
+                        <span class="language-proficiency">Native</span>
+                    </div>
+
+                    <div class="language-item">
+                        <span class="language-name">English</span>
+                        <div class="language-level">
+                            <div class="level-fill level-fill-85"></div>
+                        </div>
+                        <span class="language-proficiency">Meduim</span>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Certificates Section -->
+            <div class="cv-section">
+                <h3 class="cv-section-title">Certificates</h3>
+
+                <div class="certificates-container">
+
+
+                    <div class="certificate-item">
+                        <h4>Mobile App Development with Flutter</h4>
+                        <p class="cv-date">2023</p>
+                        <p class="cv-location">Coursera</p>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="cv-download">
+                <a href="#" id="download-cv" class="btn">Download Full CV</a>
+            </div>
+
+
+        </div>
+    </section>
+
 
     <section class="services" id="services">
         <h2 class="heading"><span>Expertise</span></h2>
@@ -87,23 +236,7 @@
                 <a href="#" class="btn">Read More</a>
             </div>
 
-            <div class="services-box">
-                <i class='bx bxs-paint'></i>
-                <h3>Android Development</h3>
-                <p>As a skilled Flutter Developer, I excel in building high-quality Android and iOS apps using Flutter.
-                    From integrating APIs to optimizing performance, my expertise empowers me to create innovative
-                    solutions for both platforms.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
 
-            <div class="services-box">
-                <i class='bx bx-bar-chart-alt'></i>
-                <h3>IOS Development</h3>
-                <p>Embracing the challenges of the Apple ecosystem, I develop elegant and efficient iOS applications
-                    using Flutter. Staying updated with the latest iOS trends, I ensure each app meets Apple's high
-                    standards and delights users worldwide.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
         </div>
     </section>
 
@@ -163,26 +296,7 @@
                 </div>
             </div>
 
-            <div class="portfolio-box">
-                <img src="Assets/fire-2901807.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Food Recipe</h4>
-                    <p>Food recipe app in Flutter, featuring awesome animations.</p>
-                    <a href="https://github.com/Hamad-Anwar/Food-Recipie-Introduction" target="_blank"><i
-                            class='bx bx-link-external'></i></a>
-                </div>
-            </div>
 
-            <div class="portfolio-box">
-                <img src="Assets/goku.png" alt="">
-                <div class="portfolio-layer">
-                    <h4>Messenger</h4>
-                    <p>Share more than words with Firebase storage integration, effortlessly exchanging captivating
-                        images.</p>
-                    <a href="https://github.com/Hamad-Anwar/Messenger-App-Backend-Firebase" target="_blank"><i
-                            class='bx bx-link-external'></i></a>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -205,7 +319,7 @@
 
     <footer class="footer">
         <div class="footer-text">
-            <p>Copyright &copy; 2023 by Hamad Anwar | All Rights Reserved </p>
+            <p>Copyright &copy; 2025 by Roeun-Chanthou | All Rights Reserved </p>
         </div>
         <div class="footer-icon">
             <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
@@ -215,6 +329,21 @@
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="Site.js"></script>
-    </body>
+</body>
 
 </html>
+
+<script>
+    document.getElementById("download-cv").addEventListener("click", function () {
+        const element = document.getElementById("cv");
+        const opt = {
+            margin: 0.5,
+            filename: 'My_CV.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(element).save();
+    });
+</script>
