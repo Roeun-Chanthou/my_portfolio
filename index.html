@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roeun Chanthou - Cyber Mobile Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
     <style>
         body {
             font-family: 'IBM Plex Mono', monospace;
@@ -24,14 +25,17 @@
                 transform: translate(0);
                 opacity: 1;
             }
+
             10% {
                 transform: translate(-2px, 2px);
                 opacity: 0.8;
             }
+
             20% {
                 transform: translate(2px, -2px);
                 opacity: 0.9;
             }
+
             100% {
                 transform: translate(0);
                 opacity: 1;
@@ -57,10 +61,11 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md shadow-lg shadow-cyan-500/50 z-50" aria-label="Main navigation">
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-md shadow-lg shadow-cyan-500/50 z-50"
+        aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <h1 class="text-2xl font-bold text-cyan-400 animate-glitch">[Chanthou@CyberDev]</h1>
+                <h1 class="text-2xl font-bold text-cyan-400 animate-glitch">[Chanthou@Dev]</h1>
                 <div class="space-x-6">
                     <a href="#home" class="text-cyan-300 hover:text-cyan-500 transition font-medium">/home</a>
                     <a href="#about" class="text-cyan-300 hover:text-cyan-500 transition font-medium">/about</a>
@@ -73,13 +78,18 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-black to-gray-900 text-cyan-300 gradient-overlay">
+    <section id="home"
+        class="min-h-screen flex items-center justify-center bg-gradient-to-br from-black to-gray-900 text-cyan-300 gradient-overlay">
         <div class="text-center px-4 animate-glitch">
             <h1 class="text-5xl md:text-6xl font-bold mb-4">> Roeun Chanthou</h1>
-            <p class="text-xl mb-6 max-w-2xl mx-auto">Cyber Mobile Developer | Crafting Flutter Apps & Laravel APIs</p>
+            <p class="text-xl mb-6 max-w-2xl mx-auto">Mobile Developer | Crafting Flutter Apps & Laravel APIs</p>
             <div class="flex justify-center space-x-4">
-                <a href="#contact" class="inline-block bg-cyan-500 text-black px-6 py-3 rounded-none hover:bg-cyan-600 transition transform animate-scale-hover font-medium">> Connect</a>
-                <a href="cv.pdf" download class="inline-block bg-gray-800 text-cyan-300 px-6 py-3 rounded-none hover:bg-gray-700 transition transform animate-scale-hover font-medium">> Download CV</a>
+                <a href="#contact"
+                    class="inline-block bg-cyan-500 text-black px-6 py-3 rounded-none hover:bg-cyan-600 transition transform animate-scale-hover font-medium">>
+                    Connect</a>
+                <a href="cv.pdf" download
+                    class="inline-block bg-gray-800 text-cyan-300 px-6 py-3 rounded-none hover:bg-gray-700 transition transform animate-scale-hover font-medium">>
+                    Download CV</a>
             </div>
         </div>
     </section>
@@ -92,10 +102,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl font-bold text-cyan-400 mb-12 text-center">[SYSTEM_PROFILE]</h2>
             <div class="flex flex-col md:flex-row items-center gap-8">
-                <img src="Assets/me.jpg" alt="Roeun Chanthou headshot" class="w-48 h-48 rounded-none border-2 border-cyan-500 animate-scale-hover">
+                <img src="Assets/me.jpg" alt="Roeun Chanthou headshot"
+                    class="w-48 h-48 rounded-none border-2 border-cyan-500 animate-scale-hover">
                 <div>
                     <p class="text-lg text-cyan-300 leading-relaxed max-w-2xl">
-                        $ whoami<br>Student at Norton University, Phnom Penh. Specializing in Flutter for cross-platform apps and Laravel for secure APIs. Passionate about pixel-perfect UI/UX and robust backend systems.
+                        $ whoami<br>Student at Norton University, Phnom Penh. Specializing in Flutter for cross-platform
+                        apps and Laravel for secure APIs. Passionate about pixel-perfect UI/UX and robust backend
+                        systems.
                     </p>
                 </div>
             </div>
@@ -110,52 +123,72 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl font-bold text-cyan-400 mb-12 text-center">[PROJECTS]</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover" aria-label="E-Commerce App">
-                    <img src="Assets/projects/e-shopping.png" alt="E-Commerce App Screenshot" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+                <div class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover"
+                    aria-label="E-Commerce App">
+                    <img src="Assets/projects/e-shopping.png" alt="E-Commerce App Screenshot"
+                        class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-cyan-300 mb-3">[E-Shopping]</h3>
-                        <p class="text-cyan-400 mb-4">Flutter e-commerce app with Laravel backend. Features user auth, product browsing, and cart management.</p>
-                        <a href="https://github.com/Roeun-Chanthou" class="text-cyan-500 hover:text-cyan-300 font-medium">> View Project</a>
+                        <p class="text-cyan-400 mb-4">Flutter e-commerce app with Laravel backend. Features user auth,
+                            product browsing, and cart management.</p>
+                        <a href="https://github.com/Roeun-Chanthou"
+                            class="text-cyan-500 hover:text-cyan-300 font-medium">> View Project</a>
                     </div>
                 </div>
-                <div class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover" aria-label="Task Management App">
-                    <img src="Assets/projects/vityealay.png" alt="Task Management App Screenshot" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+                <div class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover"
+                    aria-label="Task Management App">
+                    <img src="Assets/projects/vityealay.png" alt="Task Management App Screenshot"
+                        class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-cyan-300 mb-3">[Task Management]</h3>
-                        <p class="text-cyan-400 mb-4">Flutter app for task organization with Firebase for real-time data syncing.</p>
-                        <a href="https://github.com/Roeun-Chanthou" class="text-cyan-500 hover:text-cyan-300 font-medium">> View Project</a>
+                        <h3 class="text-xl font-semibold text-cyan-300 mb-3">[Vityealay]</h3>
+                        <p class="text-cyan-400 mb-4">
+                            Flutter app for education to learn Khmer language. Features quizzes, Bacii, and interactive
+                            lessons.
+                        </p>
+                        <a href="https://github.com/Roeun-Chanthou"
+                            class="text-cyan-500 hover:text-cyan-300 font-medium">> View Project</a>
                     </div>
                 </div>
-                <div class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover" aria-label="Social Media API">
-                    <img src="Assets/projects/vityealay.png" alt="Social Media API Screenshot" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-cyan-300 mb-3">[Social Media API]</h3>
-                        <p class="text-cyan-400 mb-4">Laravel REST API for a social platform with secure user profiles and notifications.</p>
-                        <a href="https://github.com/Roeun-Chanthou" class="text-cyan-500 hover:text-cyan-300 font-medium">> View Project</a>
-                    </div>
-                </div>
-                <div class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover" aria-label="E-Commerce App">
-                    <img src="Assets/projects/product.png" alt="E-Commerce App Screenshot" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+
+                <div class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover"
+                    aria-label="E-Commerce App">
+                    <img src="Assets/projects/product.png" alt="E-Commerce App Screenshot"
+                        class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-cyan-300 mb-3">[E-Commerce]</h3>
-                        <p class="text-cyan-400 mb-4">Flutter e-commerce app with Laravel backend. Features user auth, product browsing, and cart management.</p>
-                        <a href="https://github.com/Roeun-Chanthou" class="text-cyan-500 hover:text-cyan-300 font-medium">> View Project</a>
+                        <p class="text-cyan-400 mb-4">Flutter e-commerce app
+                            integrated products
+                        </p>
+                        <a href="https://github.com/Roeun-Chanthou"
+                            class="text-cyan-500 hover:text-cyan-300 font-medium">> View Project</a>
                     </div>
                 </div>
-                <div class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover" aria-label="Task Management App">
-                    <img src="Assets/projects/makeup.png" alt="Task Management App Screenshot" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+                <div class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover"
+                    aria-label="Task Management App">
+                    <img src="Assets/projects/makeup.png" alt="Task Management App Screenshot"
+                        class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-cyan-300 mb-3">[Task Manager]</h3>
-                        <p class="text-cyan-400 mb-4">Flutter app for task organization with Firebase for real-time data syncing.</p>
-                        <a href="https://github.com/Roeun-Chanthou" class="text-cyan-500 hover:text-cyan-300 font-medium">> View Project</a>
+                        <h3 class="text-xl font-semibold text-cyan-300 mb-3">[MakeUp App]</h3>
+                        <p class="text-cyan-400 mb-4">
+                            Flutter app for managing makeup products. Features product details, reviews, and user
+                            profiles.
+                        </p>
+                        <a href="https://github.com/Roeun-Chanthou"
+                            class="text-cyan-500 hover:text-cyan-300 font-medium">> View Project</a>
                     </div>
                 </div>
-                <div class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover" aria-label="Social Media API">
-                    <img src="Assets/projects/wingbank.png" alt="Social Media API Screenshot" class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
+                <div class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover"
+                    aria-label="Social Media API">
+                    <img src="Assets/projects/wingbank.png" alt="Social Media API Screenshot"
+                        class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300">
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-cyan-300 mb-3">[Banking API]</h3>
-                        <p class="text-cyan-400 mb-4">Laravel REST API for a banking platform with secure user profiles and transactions.</p>
-                        <a href="https://github.com/Roeun-Chanthou" class="text-cyan-500 hover:text-cyan-300 font-medium">> View Project</a>
+                        <h3 class="text-xl font-semibold text-cyan-300 mb-3">[WingBank]</h3>
+                        <p class="text-cyan-400 mb-4">
+                            Flutter banking app only UI and have all features like transfer, balance, and transaction
+                            history.
+                        </p>
+                        <a href="https://github.com/Roeun-Chanthou"
+                            class="text-cyan-500 hover:text-cyan-300 font-medium">> View Project</a>
                     </div>
                 </div>
             </div>
@@ -170,14 +203,42 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl font-bold text-cyan-400 mb-12 text-center">[TECH_STACK]</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                <div class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">Flutter</div>
-                <div class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">Dart</div>
-                <div class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">Laravel</div>
-                <div class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">PHP</div>
-                <div class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">MySQL</div>
-                <div class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">Figma</div>
-                <div class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">Git</div>
-                <div class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">UI/UX</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    Flutter</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    Dart</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    C#</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    Java</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    C++</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    Laravel</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    PHP</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    MySQL</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    PostgreSQL</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    Figma</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    Git</div>
+                <div
+                    class="bg-gray-900 rounded-none border border-cyan-500/50 px-4 py-2 text-center text-cyan-300 font-medium hover:bg-cyan-900/50 transition">
+                    UI/UX</div>
             </div>
         </div>
     </section>
@@ -194,12 +255,18 @@
                     $ connect --mobile --backend<br>Ready to build innovative apps and APIs. Ping me or check my repos!
                 </p>
                 <div class="flex justify-center space-x-4 mb-6">
-                    <a href="mailto:roeunchanthou1401@gmail.com" class="text-cyan-500 hover:text-cyan-300 font-medium">> Email</a>
-                    <a href="https://linkedin.com/in/yourprofile" class="text-cyan-500 hover:text-cyan-300 font-medium">> LinkedIn</a>
-                    <a href="https://github.com/Roeun-Chanthou" class="text-cyan-500 hover:text-cyan-300 font-medium">> GitHub</a>
-                    <a href="https://www.facebook.com/profile.php?id=100027840241518" class="text-cyan-500 hover:text-cyan-300 font-medium">> Facebook</a>
+                    <a href="mailto:roeunchanthou1401@gmail.com" class="text-cyan-500 hover:text-cyan-300 font-medium">>
+                        Email</a>
+                    <a href="https://linkedin.com/in/yourprofile"
+                        class="text-cyan-500 hover:text-cyan-300 font-medium">> LinkedIn</a>
+                    <a href="https://github.com/Roeun-Chanthou" class="text-cyan-500 hover:text-cyan-300 font-medium">>
+                        GitHub</a>
+                    <a href="https://www.facebook.com/profile.php?id=100027840241518"
+                        class="text-cyan-500 hover:text-cyan-300 font-medium">> Facebook</a>
                 </div>
-                <a href="cv.pdf" download class="inline-block bg-cyan-500 text-black px-6 py-3 rounded-none hover:bg-cyan-600 transition transform animate-scale-hover font-medium">> Download CV</a>
+                <a href="cv.pdf" download
+                    class="inline-block bg-cyan-500 text-black px-6 py-3 rounded-none hover:bg-cyan-600 transition transform animate-scale-hover font-medium">>
+                    Download CV</a>
             </div>
         </div>
     </section>
@@ -210,24 +277,32 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <p class="text-sm">$ uptime: 2025 | Roeun Chanthou</p>
                 <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="mailto:roeunchanthou1401@gmail.com" aria-label="Email" class="hover:text-cyan-500 transition">
+                    <a href="mailto:roeunchanthou1401@gmail.com" aria-label="Email"
+                        class="hover:text-cyan-500 transition">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2l-8 5-8-5V6l8 5 8-5z" />
+                            <path
+                                d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2l-8 5-8-5V6l8 5 8-5z" />
                         </svg>
                     </a>
-                    <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn" class="hover:text-cyan-500 transition">
+                    <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn"
+                        class="hover:text-cyan-500 transition">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.75 14.5v-6.75h-2.25V17.5h2.25zm-1.125-7.875c.75 0 1.375-.625 1.375-1.375S8.875 7 8.125 7 6.75 7.625 6.75 8.375s.625 1.375 1.375 1.375zm7.5 7.875V14h2.25v3.5h-2.25zm0-5.25c0-1.375 1.125-2.5 2.5-2.5.625 0 1.125.25 1.5.625V7h-2.25v3.5h2.25v1.125c-.375.375-.875.625-1.5.625-1.375 0-2.5-1.125-2.5-2.5z" />
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.75 14.5v-6.75h-2.25V17.5h2.25zm-1.125-7.875c.75 0 1.375-.625 1.375-1.375S8.875 7 8.125 7 6.75 7.625 6.75 8.375s.625 1.375 1.375 1.375zm7.5 7.875V14h2.25v3.5h-2.25zm0-5.25c0-1.375 1.125-2.5 2.5-2.5.625 0 1.125.25 1.5.625V7h-2.25v3.5h2.25v1.125c-.375.375-.875.625-1.5.625-1.375 0-2.5-1.125-2.5-2.5z" />
                         </svg>
                     </a>
-                    <a href="https://github.com/Roeun-Chanthou" aria-label="GitHub" class="hover:text-cyan-500 transition">
+                    <a href="https://github.com/Roeun-Chanthou" aria-label="GitHub"
+                        class="hover:text-cyan-500 transition">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.49 2.28 1.06 2.84.81.09-.65.35-1.06.64-1.3-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.52.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.59.67.5A10 10 0 0 0 22 12 10 10 0 0 0 12 2z" />
+                            <path
+                                d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.49 2.28 1.06 2.84.81.09-.65.35-1.06.64-1.3-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.52.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.59.67.5A10 10 0 0 0 22 12 10 10 0 0 0 12 2z" />
                         </svg>
                     </a>
-                    <a href="https://www.facebook.com/profile.php?id=100027840241518" aria-label="Facebook" class="hover:text-cyan-500 transition">
+                    <a href="https://www.facebook.com/profile.php?id=100027840241518" aria-label="Facebook"
+                        class="hover:text-cyan-500 transition">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8v-7h-2.4v-2.8h2.4v-2.1c0-2.4 1.47-3.7 3.6-3.7.72 0 1.44.06 2.16.18v2.52h-1.44c-1.14 0-1.36.54-1.36 1.33v1.77h2.76l-.36 2.8h-2.4v7c4.56-.93 8-4.96 8-9.8z" />
+                            <path
+                                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8v-7h-2.4v-2.8h2.4v-2.1c0-2.4 1.47-3.7 3.6-3.7.72 0 1.44.06 2.16.18v2.52h-1.44c-1.14 0-1.36.54-1.36 1.33v1.77h2.76l-.36 2.8h-2.4v7c4.56-.93 8-4.96 8-9.8z" />
                         </svg>
                     </a>
                 </div>
