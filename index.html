@@ -1,446 +1,848 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roeun Chanthou — Flutter Developer</title>
-  <meta name="description"
-    content="Roeun Chanthou — Senior Flutter Developer in Cambodia. Building high‑performance cross‑platform mobile apps, secure APIs, and delightful UI/UX." />
-  <meta name="keywords" content="Flutter, Dart, Mobile Developer, Cambodia, API, Laravel, Node.js, Socket.IO" />
-  <meta name="author" content="Roeun Chanthou" />
-  <!-- Open Graph / Twitter Card for SEO -->
-  <meta property="og:title" content="Roeun Chanthou — Senior Flutter Developer" />
-  <meta property="og:description" content="Building high‑performance cross‑platform mobile apps and APIs." />
-  <meta property="og:image" content="Assets/profile.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roeun Chanthou — Flutter Developer</title>
+    <meta name="description" content="Roeun Chanthou — Flutter Developer in Cambodia. Building high‑performance cross‑platform mobile apps, secure APIs, and delightful UI/UX.">
+    
+    <!-- Vue 3 CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    animation: {
+                        'glitch': 'glitch 1s linear infinite alternate',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #00ADB5;
+            --secondary: #0D1117;
+            --accent: #FF6B6B;
+        }
+        
+        .font-mono { font-family: 'IBM Plex Mono', monospace; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        .font-code { font-family: 'Fira Code', monospace; }
+        
+        @keyframes glitch {
+            0% { transform: translate(0); opacity: 1; }
+            10% { transform: translate(-2px, 2px); opacity: 0.85; }
+            20% { transform: translate(2px, -2px); opacity: 0.95; }
+            100% { transform: translate(0); opacity: 1; }
+        }
+        
+        .animate-glitch { animation: glitch 1s linear infinite alternate; }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #00ADB5, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(0, 173, 181, 0.5);
+        }
+        
+        .retro-grid {
+            background-image: 
+                linear-gradient(rgba(0, 173, 181, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 173, 181, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
 
-  <!-- TailwindCSS CDN + Dark Mode config -->
-  <script>
-    tailwind = {
-      config: {
-        darkMode: 'class'
-      }
-    }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600;700&display=swap"
-    as="style" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600;700&display=swap"
-    rel="stylesheet" />
-
-  <!-- AOS (scroll animations) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg: #0D1117;
-      --fg: #00ADB5;
-    }
-
-    body {
-      font-family: 'IBM Plex Mono', monospace;
-      background-color: var(--bg);
-      color: var(--fg);
-    }
-
-    .animate-glitch {
-      animation: glitch 1s linear infinite alternate;
-    }
-
-    @keyframes glitch {
-      0% {
-        transform: translate(0);
-        opacity: 1
-      }
-
-      10% {
-        transform: translate(-2px, 2px);
-        opacity: 0.85
-      }
-
-      20% {
-        transform: translate(2px, -2px);
-        opacity: 0.95
-      }
-
-      100% {
-        transform: translate(0);
-        opacity: 1
-      }
-    }
-
-    .animate-scale-hover:hover {
-      transform: scale(1.05);
-      transition: transform .3s ease;
-    }
-
-    .gradient-overlay {
-      background: linear-gradient(180deg, rgba(0, 173, 181, 0.18), transparent);
-    }
-
-    .matrix-divider {
-      height: 3px;
-      width: 100%;
-    }
-
-    .lazy-bg {
-      background-size: cover;
-    }
-  </style>
+        /* Template-specific styles */
+        .template-modern .bg-primary { background-color: #1e40af; }
+        .template-modern .text-primary { color: #3b82f6; }
+        .template-modern .border-primary { border-color: #3b82f6; }
+        
+        .template-neon .bg-primary { background: linear-gradient(45deg, #ff0080, #00ff80); }
+        .template-neon .text-primary { color: #00ff80; }
+        .template-neon .border-primary { border-color: #00ff80; }
+        
+        .template-minimal .bg-primary { background-color: #374151; }
+        .template-minimal .text-primary { color: #6b7280; }
+        .template-minimal .border-primary { border-color: #6b7280; }
+    </style>
 </head>
 
-<body class="dark:bg-[#0B0F14]">
-  <!-- Top Nav -->
-  <nav class="fixed top-0 w-full bg-black/90 dark:bg-black/80 backdrop-blur-md shadow-lg shadow-cyan-500/30 z-50"
-    aria-label="Main navigation">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <h1 class="text-2xl font-bold text-cyan-400 animate-glitch">[Chanthou@Dev]</h1>
-        <div class="hidden sm:flex items-center space-x-8 lg:space-x-10">
-          <a href="#home" class="text-cyan-300 hover:text-cyan-500 transition font-medium">/home</a>
-          <a href="#about" class="text-cyan-300 hover:text-cyan-500 transition font-medium">/about</a>
-          <a href="#projects" class="text-cyan-300 hover:text-cyan-500 transition font-medium">/projects</a>
-          <a href="#skills" class="text-cyan-300 hover:text-cyan-500 transition font-medium">/skills</a>
-          <a href="#testimonials" class="text-cyan-300 hover:text-cyan-500 transition font-medium">/testimonials</a>
-          <a href="#contact" class="text-cyan-300 hover:text-cyan-500 transition font-medium">/contact</a>
-        </div>
-        <div class="flex items-center gap-3">
-          <button id="themeToggle"
-            class="px-4 py-2 sm:px-3 sm:py-1.5 text-sm bg-cyan-500 text-black font-semibold rounded hover:bg-cyan-400 transition">
-            Toggle Theme
-          </button>
-          <div class="sm:hidden">
-            <button id="mobileMenuBtn" class="text-cyan-300 focus:outline-none" aria-label="Toggle mobile menu">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="mobileMenu" class="hidden sm:hidden bg-black/90 w-full absolute top-16 left-0 shadow-lg">
-        <div class="flex flex-col items-center py-4 space-y-4">
-          <a href="#home" class="text-cyan-300 hover:text-cyan-500 font-medium">/home</a>
-          <a href="#about" class="text-cyan-300 hover:text-cyan-500 font-medium">/about</a>
-          <a href="#projects" class="text-cyan-300 hover:text-cyan-500 font-medium">/projects</a>
-          <a href="#skills" class="text-cyan-300 hover:text-cyan-500 font-medium">/skills</a>
-          <a href="#testimonials" class="text-cyan-300 hover:text-cyan-500 font-medium">/testimonials</a>
-          <a href="#contact" class="text-cyan-300 hover:text-cyan-500 font-medium">/contact</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section id="home"
-    class="min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-black to-gray-900 text-cyan-300 gradient-overlay pt-16">
-    <div class="text-center px-4" data-aos="fade-up">
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">&gt; Roeun Chanthou</h1>
-      <p class="text-lg sm:text-xl md:text-2xl mb-6 max-w-2xl mx-auto">
-        <span class="typing"></span>
-      </p>
-      <div class="flex justify-center flex-wrap gap-4">
-        <a href="#contact"
-          class="inline-block bg-cyan-500 text-black px-6 py-4 sm:px-6 sm:py-3 rounded-none hover:bg-cyan-600 transition transform animate-scale-hover font-medium">&gt;
-          Connect</a>
-        <a href="roeun_chanthou_flutter_developer.pdf" download
-          class="inline-block bg-gray-800 text-cyan-300 px-6 py-4 sm:px-6 sm:py-3 rounded-none hover:bg-gray-700 transition transform animate-scale-hover font-medium">&gt;
-          Download CV</a>
-        <a href="https://github.com/Roeun-Chanthou" target="_blank" rel="noreferrer"
-          class="inline-block bg-gray-800 text-cyan-300 px-6 py-4 sm:px-6 sm:py-3 rounded-none hover:bg-gray-700 transition transform animate-scale-hover font-medium">&gt;
-          GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="matrix-divider lazy-bg"
-    data-bg="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/matrix-line.gif" aria-hidden="true">
-  </div>
-
-  <!-- About -->
-  <section id="about" class="py-24 bg-black">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl sm:text-4xl font-bold text-cyan-400 mb-12 text-center">[SYSTEM_PROFILE]</h2>
-      <div class="flex flex-col md:flex-row items-center gap-8">
-        <img src="Assets/proflle.jpg" loading="lazy" alt="Portrait of Roeun Chanthou, Senior Flutter Developer"
-          class="w-48 h-48 object-cover rounded-none border-2 border-cyan-500 animate-scale-hover"
-          srcset="Assets/proflle-320w.jpg 320w, Assets/proflle-640w.jpg 640w, Assets/proflle.jpg 1280w"
-          sizes="(max-width: 640px) 100vw, 320px" />
-        <div class="max-w-2xl mx-auto px-4 sm:px-0">
-          <p class="text-lg text-cyan-300 leading-relaxed">
-            $ whoami<br />
-            Flutter Developer specializing in high‑performance cross‑platform apps and secure APIs. I build
-            pixel‑perfect UI/UX, optimize animations and state, and integrate reliable backends with Laravel/Node.
-            Currently pursuing my degree at Norton University, Phnom Penh.
-          </p>
-          <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2 text-cyan-200">
-            <li>• Flutter & Dart • Riverpod/Bloc/GetX • Clean Architecture</li>
-            <li>• REST & WebSockets • Firebase • GraphQL (basic)</li>
-            <li>• Laravel / Node.js APIs • Auth • Payments</li>
-            <li>• MySQL • PostgreSQL • Firestore • SQLite</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="matrix-divider" aria-hidden="true"></div>
-
-  <!-- Projects -->
-  <section id="projects" class="py-24 bg-gray-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-4xl font-bold text-cyan-400 mb-12 text-center">[PROJECTS]</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Project 1 -->
-        <article
-          class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover"
-          aria-label="E-Shopping E‑commerce App" data-aos="fade-up">
-          <img src="Assets/projects/e-shopping.png" loading="lazy"
-            alt="E‑Shopping — Flutter e‑commerce app UI with product grid and cart"
-            class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-cyan-300 mb-3">[E‑Shopping]</h3>
-            <p class="text-cyan-400 mb-4">Flutter e‑commerce app with Laravel backend: auth, product catalog, cart,
-              and checkout flow.</p>
-            <div class="flex gap-4">
-              <a href="https://github.com/Roeun-Chanthou/customer_order_app" target="_blank" rel="noreferrer"
-                class="text-cyan-500 hover:text-cyan-300 font-medium">&gt; GitHub</a>
-              <!-- Optional: replace with your live demo link -->
-              <!-- <a href="https://demo.yourapp.com" target="_blank" rel="noreferrer" class="text-green-400 hover:text-green-300 font-medium">&gt; Live Demo</a> -->
+<body id="app">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300"
+         :class="[
+             isDark ? 'bg-black/90' : 'bg-white/90',
+             'backdrop-blur-md shadow-lg',
+             currentTemplate === 'neon' ? 'shadow-cyan-500/30' : 'shadow-gray-500/30'
+         ]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <h1 class="text-2xl font-bold transition-all duration-300"
+                    :class="[
+                        currentTemplate === 'cyber' ? 'animate-glitch font-mono' : 'font-inter',
+                        isDark ? 'text-cyan-400' : 'text-gray-800',
+                        currentTemplate === 'neon' ? 'gradient-text' : ''
+                    ]">
+                    {{ currentTemplate === 'cyber' ? '[Chanthou@Dev]' : 'Roeun Chanthou' }}
+                </h1>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden sm:flex items-center space-x-8">
+                    <a v-for="item in navigation" :key="item.href" 
+                       :href="item.href" 
+                       class="transition-colors duration-300 font-medium"
+                       :class="[
+                           isDark ? 'text-cyan-300 hover:text-cyan-500' : 'text-gray-600 hover:text-gray-900',
+                           currentTemplate === 'cyber' ? 'font-mono' : 'font-inter'
+                       ]">
+                        {{ currentTemplate === 'cyber' ? item.cyberLabel : item.label }}
+                    </a>
+                </div>
+                
+                <!-- Controls -->
+                <div class="flex items-center gap-3">
+                    <!-- Template Selector -->
+                    <select v-model="currentTemplate" 
+                            class="px-3 py-1 text-sm rounded transition-all duration-300"
+                            :class="[
+                                isDark ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800',
+                                'border border-gray-300'
+                            ]">
+                        <option value="modern">Modern</option>
+                        <option value="cyber">Cyber</option>
+                        <option value="neon">Neon</option>
+                        <option value="minimal">Minimal</option>
+                    </select>
+                    
+                    <!-- Theme Toggle -->
+                    <button @click="toggleTheme" 
+                            class="px-4 py-2 text-sm font-semibold rounded transition-all duration-300 transform hover:scale-105"
+                            :class="[
+                                isDark ? 'bg-cyan-500 text-black hover:bg-cyan-400' : 'bg-gray-800 text-white hover:bg-gray-700'
+                            ]">
+                        {{ isDark ? '☀️' : '🌙' }}
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" 
+                            class="sm:hidden transition-colors duration-300"
+                            :class="isDark ? 'text-cyan-300' : 'text-gray-600'">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  :d="mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
-          </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article
-          class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover"
-          aria-label="Vityealay Education App" data-aos="fade-up" data-aos-delay="100">
-          <img src="Assets/projects/vityealay.png" loading="lazy"
-            alt="Vityealay — Flutter education app with Khmer lessons and quizzes"
-            class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-cyan-300 mb-3">[Vityealay]</h3>
-            <p class="text-cyan-400 mb-4">Khmer language learning app with quizzes and interactive lessons.</p>
-            <div class="flex gap-4">
-              <a href="https://github.com/Makra-Pov/Vityealay" target="_blank" rel="noreferrer"
-                class="text-cyan-500 hover:text-cyan-300 font-medium">&gt; GitHub</a>
+            
+            <!-- Mobile Menu -->
+            <div v-show="mobileMenuOpen" 
+                 class="sm:hidden absolute top-16 left-0 w-full transition-all duration-300"
+                 :class="[
+                     isDark ? 'bg-black/90' : 'bg-white/90',
+                     'backdrop-blur-md shadow-lg'
+                 ]">
+                <div class="flex flex-col items-center py-4 space-y-4">
+                    <a v-for="item in navigation" :key="item.href" 
+                       :href="item.href" 
+                       @click="mobileMenuOpen = false"
+                       class="transition-colors duration-300 font-medium"
+                       :class="[
+                           isDark ? 'text-cyan-300 hover:text-cyan-500' : 'text-gray-600 hover:text-gray-900',
+                           currentTemplate === 'cyber' ? 'font-mono' : 'font-inter'
+                       ]">
+                        {{ currentTemplate === 'cyber' ? item.cyberLabel : item.label }}
+                    </a>
+                </div>
             </div>
-          </div>
-        </article>
+        </div>
+    </nav>
 
-        <!-- Project 3 -->
-        <article
-          class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover"
-          aria-label="Products API Integration" data-aos="fade-up" data-aos-delay="150">
-          <img src="Assets/projects/product.png" loading="lazy"
-            alt="E‑Commerce — Flutter app displaying integrated products from backend"
-            class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-cyan-300 mb-3">[E‑Commerce]</h3>
-            <p class="text-cyan-400 mb-4">Flutter app integrated with REST API for product listing & filtering.</p>
-            <div class="flex gap-4">
-              <a href="https://github.com/Roeun-Chanthou/flutter_fetch_api" target="_blank" rel="noreferrer"
-                class="text-cyan-500 hover:text-cyan-300 font-medium">&gt; GitHub</a>
+    <!-- Hero Section -->
+    <section id="home" 
+             class="min-h-screen flex items-center justify-center pt-16 transition-all duration-500"
+             :class="getHeroClasses()">
+        <div class="text-center px-4 max-w-5xl mx-auto" data-aos="fade-up">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-bold mb-6 transition-all duration-500"
+                :class="[
+                    currentTemplate === 'cyber' ? 'font-mono animate-glitch' : 'font-inter',
+                    currentTemplate === 'neon' ? 'gradient-text' : isDark ? 'text-white' : 'text-gray-900'
+                ]">
+                {{ currentTemplate === 'cyber' ? '&gt; Roeun Chanthou' : 'Roeun Chanthou' }}
+            </h1>
+            
+            <div class="text-lg sm:text-2xl md:text-3xl mb-8 h-16 flex items-center justify-center">
+                <span class="typing-text transition-all duration-300"
+                      :class="[
+                          isDark ? 'text-cyan-300' : 'text-gray-700',
+                          currentTemplate === 'neon' ? 'text-pink-400' : '',
+                          currentTemplate === 'cyber' ? 'font-mono' : 'font-inter'
+                      ]">
+                    {{ currentTypedText }}
+                </span>
             </div>
-          </div>
-        </article>
-
-        <!-- Project 4 -->
-        <article
-          class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover"
-          aria-label="MakeUp Product Manager" data-aos="fade-up" data-aos-delay="200">
-          <img src="Assets/projects/makeup.png" loading="lazy"
-            alt="MakeUp — Flutter app for managing makeup products and reviews"
-            class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-cyan-300 mb-3">[MakeUp App]</h3>
-            <p class="text-cyan-400 mb-4">Manage products, reviews, and profiles in a clean Flutter UI.</p>
-            <div class="flex gap-4">
-              <a href="https://github.com/Roeun-Chanthou/ecommerc_app" target="_blank" rel="noreferrer"
-                class="text-cyan-500 hover:text-cyan-300 font-medium">&gt; GitHub</a>
+            
+            <div class="flex justify-center flex-wrap gap-4">
+                <button v-for="button in heroButtons" :key="button.label"
+                        @click="handleButtonClick(button)"
+                        class="px-6 py-3 font-medium rounded transition-all duration-300 transform hover:scale-105"
+                        :class="getButtonClasses(button.type)">
+                    {{ currentTemplate === 'cyber' ? '&gt; ' : '' }}{{ button.label }}
+                </button>
             </div>
-          </div>
-        </article>
+        </div>
+    </section>
 
-        <!-- Project 5 -->
-        <article
-          class="bg-black rounded-none border-2 border-cyan-500/50 overflow-hidden transform transition hover:shadow-cyan-500/50 animate-scale-hover"
-          aria-label="WingBank UI Clone" data-aos="fade-up" data-aos-delay="250">
-          <img src="Assets/projects/wingbank.png" loading="lazy"
-            alt="WingBank — Flutter banking app UI clone with transfers and history"
-            class="w-full h-48 object-cover hover:scale-105 transition-transform duration-300" />
-          <div class="p-6">
-            <h3 class="text-xl font-semibold text-cyan-300 mb-3">[WingBank]</h3>
-            <p class="text-cyan-400 mb-4">Banking app UI clone with transfer flow, balances, and history screens.</p>
-            <div class="flex gap-4">
-              <a href="https://github.com/Roeun-Chanthou/WingBank-Clone-Flutter" target="_blank" rel="noreferrer"
-                class="text-cyan-500 hover:text-cyan-300 font-medium">&gt; GitHub</a>
+    <!-- About Section -->
+    <section id="about" 
+             class="py-24 transition-all duration-500"
+             :class="isDark ? 'bg-black' : 'bg-gray-50'">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center transition-all duration-300"
+                :class="getSectionTitleClasses()">
+                {{ getSectionTitle('About') }}
+            </h2>
+            
+            <div class="flex flex-col md:flex-row items-center gap-8" data-aos="fade-up">
+                <div class="w-48 h-48 rounded-lg overflow-hidden transition-all duration-300 transform hover:scale-105"
+                     :class="[
+                         currentTemplate === 'cyber' ? 'border-2 border-cyan-500' : 'shadow-xl',
+                         currentTemplate === 'neon' ? 'neon-glow' : ''
+                     ]">
+                    <img src="Assets/proflle.jpg" alt="Roeun Chanthou" class="w-full h-full object-cover">
+                </div>
+                
+                <div class="max-w-2xl">
+                    <div class="text-lg leading-relaxed mb-6 transition-all duration-300"
+                         :class="[
+                             isDark ? 'text-cyan-300' : 'text-gray-700',
+                             currentTemplate === 'cyber' ? 'font-mono' : 'font-inter'
+                         ]">
+                        <p v-if="currentTemplate === 'cyber'">$ whoami<br></p>
+                        <p>{{ aboutText }}</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div v-for="skill in skills" :key="skill"
+                             class="transition-all duration-300 p-3 rounded"
+                             :class="[
+                                 isDark ? 'text-cyan-200' : 'text-gray-600',
+                                 currentTemplate === 'minimal' ? 'bg-gray-100 dark:bg-gray-800' : '',
+                                 currentTemplate === 'neon' ? 'glass' : ''
+                             ]">
+                            • {{ skill }}
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <div class="matrix-divider" aria-hidden="true"></div>
-
-  <!-- Skills -->
-  <section id="skills" class="py-24 bg-black">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-4xl font-bold text-cyan-400 mb-12 text-center">[TECH_STACK]</h2>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="space-y-4" data-aos="fade-right">
-          <h3 class="text-2xl font-semibold text-cyan-300">Frontend</h3>
-          <p class="text-cyan-300">Flutter, Dart, UI/UX, Animations, Responsive Layouts, Figma</p>
-
-          <h3 class="text-2xl font-semibold text-cyan-300">Backend & Realtime</h3>
-          <p class="text-cyan-300">Laravel, PHP, Node.js, REST APIs, WebSockets, Socket.IO, Firebase</p>
         </div>
-        <div class="space-y-4" data-aos="fade-left">
-          <h3 class="text-2xl font-semibold text-cyan-300">Databases</h3>
-          <p class="text-cyan-300">MySQL, PostgreSQL, Firestore, SQLite</p>
+    </section>
 
-          <h3 class="text-2xl font-semibold text-cyan-300">Tools & DevOps</h3>
-          <p class="text-cyan-300">Git, GitHub, AWS EC2, CI/CD (GitHub Actions, Bitbucket Pipelines)</p>
+    <!-- Projects Section -->
+    <section id="projects" 
+             class="py-24 transition-all duration-500"
+             :class="[
+                 isDark ? 'bg-gray-900' : 'bg-white',
+                 currentTemplate === 'cyber' ? 'retro-grid' : ''
+             ]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-12 text-center transition-all duration-300"
+                :class="getSectionTitleClasses()">
+                {{ getSectionTitle('Projects') }}
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article v-for="(project, index) in projects" :key="project.title"
+                         class="overflow-hidden transition-all duration-300 transform hover:scale-105"
+                         :class="getProjectCardClasses()"
+                         :data-aos="'fade-up'"
+                         :data-aos-delay="index * 100">
+                    <div class="h-48 overflow-hidden">
+                        <img :src="project.image" :alt="project.title" 
+                             class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3 transition-all duration-300"
+                            :class="[
+                                isDark ? 'text-cyan-300' : 'text-gray-800',
+                                currentTemplate === 'cyber' ? 'font-mono' : 'font-inter'
+                            ]">
+                            {{ currentTemplate === 'cyber' ? `[${project.title}]` : project.title }}
+                        </h3>
+                        <p class="mb-4 transition-all duration-300"
+                           :class="isDark ? 'text-cyan-400' : 'text-gray-600'">
+                            {{ project.description }}
+                        </p>
+                        <div class="flex gap-4">
+                            <a v-for="link in project.links" :key="link.label"
+                               :href="link.url" target="_blank" rel="noreferrer"
+                               class="font-medium transition-colors duration-300 hover:underline"
+                               :class="[
+                                   link.type === 'github' ? (isDark ? 'text-cyan-500 hover:text-cyan-300' : 'text-blue-600 hover:text-blue-800') : 'text-green-400 hover:text-green-300',
+                                   currentTemplate === 'cyber' ? 'font-mono' : 'font-inter'
+                               ]">
+                                {{ currentTemplate === 'cyber' ? '&gt; ' : '' }}{{ link.label }}
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="matrix-divider" aria-hidden="true"></div>
-
-  <!-- Testimonials -->
-  <section id="testimonials" class="py-24 bg-gray-900">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-4xl font-bold text-cyan-400 mb-12 text-center">[TESTIMONIALS]</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <blockquote class="bg-black/60 border border-cyan-500/30 p-6 italic text-cyan-200" data-aos="fade-up">
-          “Chanthou delivered our Flutter app ahead of schedule with clean architecture and smooth animations.”
-          <footer class="mt-3 text-cyan-400">— Client / Mentor</footer>
-        </blockquote>
-        <blockquote class="bg-black/60 border border-cyan-500/30 p-6 italic text-cyan-200" data-aos="fade-up"
-          data-aos-delay="100">
-          “Great communication and fast iteration. The API integration and state management were spot on.”
-          <footer class="mt-3 text-cyan-400">— Product Lead</footer>
-        </blockquote>
-      </div>
-
-      <!-- GitHub Stats (optional) -->
-      <div class="mt-12 text-center" data-aos="zoom-in">
-        <img src="https://github-readme-stats.vercel.app/api?username=Roeun-Chanthou&show_icons=true&theme=radical"
-          alt="GitHub stats for Roeun Chanthou" class="mx-auto">
-      </div>
-    </div>
-  </section>
-
-  <div class="matrix-divider" aria-hidden="true"></div>
-
-  <!-- Contact -->
-  <section id="contact" class="py-24 bg-gradient-to-br from-black to-gray-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-4xl font-bold text-cyan-400 mb-12 text-center">[PING]</h2>
-      <div class="max-w-lg mx-auto text-center" data-aos="fade-up">
-        <p class="text-lg text-cyan-300 mb-6">
-          $ connect --mobile --backend<br />Ready to build innovative apps and APIs. Ping me or check my repos!
-        </p>
-        <div class="flex justify-center flex-wrap gap-4 mb-6">
-          <a href="mailto:roeunchanthou1401@gmail.com" class="text-cyan-500 hover:text-cyan-300 font-medium">&gt;
-            Email</a>
-          <a href="https://linkedin.com/in/roeun-chanthou" target="_blank" rel="noreferrer"
-            class="text-cyan-500 hover:text-cyan-300 font-medium">&gt; LinkedIn</a>
-          <a href="https://github.com/Roeun-Chanthou" target="_blank" rel="noreferrer"
-            class="text-cyan-500 hover:text-cyan-300 font-medium">&gt; GitHub</a>
-          <a href="https://www.facebook.com/profile.php?id=100027840241518" target="_blank" rel="noreferrer"
-            class="text-cyan-500 hover:text-cyan-300 font-medium">&gt; Facebook</a>
+    <!-- Skills Section -->
+    <section id="skills" 
+             class="py-24 transition-all duration-500"
+             :class="isDark ? 'bg-black' : 'bg-gray-50'">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-12 text-center transition-all duration-300"
+                :class="getSectionTitleClasses()">
+                {{ getSectionTitle('Skills') }}
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div v-for="category in skillCategories" :key="category.title"
+                     class="space-y-4 transition-all duration-300"
+                     :data-aos="category.aos">
+                    <h3 class="text-2xl font-semibold transition-all duration-300"
+                        :class="[
+                            isDark ? 'text-cyan-300' : 'text-gray-800',
+                            currentTemplate === 'cyber' ? 'font-mono' : 'font-inter'
+                        ]">
+                        {{ category.title }}
+                    </h3>
+                    <p class="transition-all duration-300"
+                       :class="[
+                           isDark ? 'text-cyan-300' : 'text-gray-600',
+                           currentTemplate === 'cyber' ? 'font-mono' : 'font-inter'
+                       ]">
+                        {{ category.skills }}
+                    </p>
+                </div>
+            </div>
         </div>
-        <a href="cv.pdf" download
-          class="inline-block bg-cyan-500 text-black px-6 py-3 rounded-none hover:bg-cyan-600 transition transform animate-scale-hover font-medium">&gt;
-          Download
-          CV</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-black text-cyan-300 py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <p class="text-sm">$ uptime: 2025 | Roeun Chanthou</p>
-        <div class="flex space-x-4 mt-4 md:mt-0">
-          <a href="mailto:roeunchanthou1401@gmail.com" aria-label="Email" class="hover:text-cyan-500 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2l-8 5-8-5V6l8 5 8-5z" />
-            </svg>
-          </a>
-          <a href="https://linkedin.com/in/roeun-chanthou" aria-label="LinkedIn" target="_blank" rel="noreferrer"
-            class="hover:text-cyan-500 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.75 14.5v-6.75h-2.25V17.5h2.25zm-1.125-7.875c.75 0 1.375-.625 1.375-1.375S8.875 7 8.125 7 6.75 7.625 6.75 8.375s.625 1.375 1.375 1.375zm7.5 7.875V14h2.25v3.5h-2.25zm0-5.25c0-1.375 1.125-2.5 2.5-2.5.625 0 1.125.25 1.5.625V7h-2.25v3.5h2.25v1.125c-.375.375-.875.625-1.5.625-1.375 0-2.5-1.125-2.5-2.5z" />
-            </svg>
-          </a>
-          <a href="https://github.com/Roeun-Chanthou" aria-label="GitHub" target="_blank" rel="noreferrer"
-            class="hover:text-cyan-500 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.49 2.28 1.06 2.84.81.09-.65.35-1.06.64-1.3-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.52.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.59.67.5A10 10 0 0 0 22 12 10 10 0 0 0 12 2z" />
-            </svg>
-          </a>
-          <a href="https://www.facebook.com/ly.hu.981240?mibextid=LQQJ4d" aria-label="Facebook" target="_blank"
-            rel="noreferrer" class="hover:text-cyan-500 transition">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8v-7h-2.4v-2.8h2.4v-2.1c0-2.4 1.47-3.7 3.6-3.7.72 0 1.44.06 2.16.18v2.52h-1.44c-1.14 0-1.36.54-1.36 1.33v1.77h2.76l-.36 2.8h-2.4v7c4.56-.93 8-4.96 8-9.8z" />
-            </svg>
-          </a>
+    <!-- Contact Section -->
+    <section id="contact" 
+             class="py-24 transition-all duration-500"
+             :class="[
+                 isDark ? 'bg-gradient-to-br from-black to-gray-900' : 'bg-gradient-to-br from-gray-100 to-white'
+             ]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-12 text-center transition-all duration-300"
+                :class="getSectionTitleClasses()">
+                {{ getSectionTitle('Contact') }}
+            </h2>
+            
+            <div class="max-w-lg mx-auto text-center" data-aos="fade-up">
+                <p class="text-lg mb-6 transition-all duration-300"
+                   :class="[
+                       isDark ? 'text-cyan-300' : 'text-gray-700',
+                       currentTemplate === 'cyber' ? 'font-mono' : 'font-inter'
+                   ]">
+                    <span v-if="currentTemplate === 'cyber'">$ connect --mobile --backend<br></span>
+                    {{ contactText }}
+                </p>
+                
+                <div class="flex justify-center flex-wrap gap-4 mb-6">
+                    <a v-for="contact in contactLinks" :key="contact.label"
+                       :href="contact.url" target="_blank" rel="noreferrer"
+                       class="font-medium transition-all duration-300 hover:underline transform hover:scale-105"
+                       :class="[
+                           isDark ? 'text-cyan-500 hover:text-cyan-300' : 'text-blue-600 hover:text-blue-800',
+                           currentTemplate === 'cyber' ? 'font-mono' : 'font-inter'
+                       ]">
+                        {{ currentTemplate === 'cyber' ? '&gt; ' : '' }}{{ contact.label }}
+                    </a>
+                </div>
+                
+                <button @click="downloadCV"
+                        class="px-6 py-3 font-medium rounded transition-all duration-300 transform hover:scale-105"
+                        :class="getButtonClasses('primary')">
+                    {{ currentTemplate === 'cyber' ? '&gt; Download CV' : 'Download CV' }}
+                </button>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Scripts: Typed.js + AOS + Theme Toggle -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    // Typed headline
-    new Typed('.typing', {
-      strings: ['Senior Flutter Developer', 'Mobile Solutions Architect', 'API Specialist', 'UI/UX Enthusiast'],
-      typeSpeed: 70,
-      backSpeed: 40,
-      loop: true
-    });
+    <!-- Footer -->
+    <footer class="py-8 transition-all duration-500"
+            :class="isDark ? 'bg-black text-cyan-300' : 'bg-gray-900 text-gray-300'">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm transition-all duration-300"
+                   :class="currentTemplate === 'cyber' ? 'font-mono' : 'font-inter'">
+                    {{ currentTemplate === 'cyber' ? '$ uptime: 2025 | Roeun Chanthou' : '© 2025 Roeun Chanthou. All rights reserved.' }}
+                </p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a v-for="social in socialLinks" :key="social.label"
+                       :href="social.url" :aria-label="social.label" target="_blank" rel="noreferrer"
+                       class="hover:scale-110 transition-transform duration-300"
+                       :class="isDark ? 'hover:text-cyan-500' : 'hover:text-gray-100'">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" v-html="social.icon"></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    // AOS init
-    AOS.init({ once: true, duration: 700, offset: 80 });
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        const { createApp, ref, computed, onMounted, watch } = Vue;
 
-    // Dark/Light toggle
-    const btn = document.getElementById('themeToggle');
-    const root = document.documentElement;
-    const STORAGE_KEY = 'theme-dark-enabled';
+        createApp({
+            setup() {
+                // Reactive state
+                const isDark = ref(true);
+                const currentTemplate = ref('cyber');
+                const mobileMenuOpen = ref(false);
+                const currentTypedText = ref('');
+                const typedIndex = ref(0);
+                const charIndex = ref(0);
+                const isDeleting = ref(false);
 
-    function setDark(enabled) {
-      if (enabled) {
-        root.classList.add('dark');
-        localStorage.setItem(STORAGE_KEY, '1');
-      } else {
-        root.classList.remove('dark');
-        localStorage.setItem(STORAGE_KEY, '0');
-      }
-    }
+                // Static data
+                const navigation = [
+                    { label: 'Home', cyberLabel: '/home', href: '#home' },
+                    { label: 'About', cyberLabel: '/about', href: '#about' },
+                    { label: 'Projects', cyberLabel: '/projects', href: '#projects' },
+                    { label: 'Skills', cyberLabel: '/skills', href: '#skills' },
+                    { label: 'Contact', cyberLabel: '/contact', href: '#contact' }
+                ];
 
-    // On load, respect saved preference (default dark)
-    const saved = localStorage.getItem(STORAGE_KEY);
-    setDark(saved === null ? true : saved === '1');
+                const typedTexts = {
+                    modern: ['Flutter Developer'],
+                    cyber: ['Flutter Developer'],
+                    neon: ['Flutter Developer'],
+                    minimal: ['Flutter Developer']
+                };
 
-    btn.addEventListener('click', () => setDark(!root.classList.contains('dark')));
-  </script>
+                const heroButtons = [
+                    { label: 'Connect', type: 'primary', action: 'contact' },
+                    { label: 'Download CV', type: 'secondary', action: 'download' },
+                    { label: 'GitHub', type: 'secondary', action: 'github' }
+                ];
+
+                const aboutText = computed(() => {
+                    const texts = {
+                        cyber: "Flutter Developer specializing in high‑performance cross‑platform apps and secure APIs. I build pixel‑perfect UI/UX, optimize animations and state, and integrate reliable backends with Laravel/Node. Currently pursuing my degree at Norton University, Phnom Penh.",
+                        modern: "I'm a passionate Flutter developer with expertise in creating beautiful, performant mobile applications. My focus is on delivering exceptional user experiences through clean code and innovative solutions.",
+                        neon: "Digital craftsman pushing the boundaries of mobile development. I create immersive experiences that blend cutting-edge technology with stunning visual design.",
+                        minimal: "Flutter developer focused on building clean, efficient mobile applications with great user experience."
+                    };
+                    return texts[currentTemplate.value];
+                });
+
+                const contactText = computed(() => {
+                    const texts = {
+                        cyber: "Ready to build innovative apps and APIs. Ping me or check my repos!",
+                        modern: "Let's collaborate on your next project. I'm always excited to work on innovative solutions.",
+                        neon: "Ready to create something extraordinary? Let's connect and build the future together.",
+                        minimal: "Get in touch to discuss your project."
+                    };
+                    return texts[currentTemplate.value];
+                });
+
+                const skills = [
+                    'Flutter & Dart',
+                    'Provider/Bloc/GetX',
+                    'MySQL / PostgreSQL',
+                ];
+
+                const projects = [
+                    {
+                        title: 'E-Shopping',
+                        description: 'Flutter e‑commerce app with Laravel backend: auth, product catalog, cart, and checkout flow.',
+                        image: 'Assets/projects/e-shopping.png',
+                        links: [
+                            { label: 'GitHub', type: 'github', url: 'https://github.com/Roeun-Chanthou/customer_order_app' }
+                        ]
+                    },
+                    {
+                        title: 'Vityealay',
+                        description: 'Khmer language learning app with quizzes and interactive lessons.',
+                        image: 'Assets/projects/vityealay.png',
+                        links: [
+                            { label: 'GitHub', type: 'github', url: 'https://github.com/Makra-Pov/Vityealay' }
+                        ]
+                    },
+                    {
+                        title: 'E-Commerce API',
+                        description: 'Flutter app integrated with REST API for product listing & filtering.',
+                        image: 'Assets/projects/product.png',
+                        links: [
+                            { label: 'GitHub', type: 'github', url: 'https://github.com/Roeun-Chanthou/flutter_fetch_api' }
+                        ]
+                    },
+                    {
+                        title: 'MakeUp App',
+                        description: 'Manage products, reviews, and profiles in a clean Flutter UI.',
+                        image: 'Assets/projects/makeup.png',
+                        links: [
+                            { label: 'GitHub', type: 'github', url: 'https://github.com/Roeun-Chanthou/ecommerc_app' }
+                        ]
+                    },
+                    {
+                        title: 'WingBank',
+                        description: 'Banking app UI clone with transfer flow, balances, and history screens.',
+                        image: 'Assets/projects/wingbank.png',
+                        links: [
+                            { label: 'GitHub', type: 'github', url: 'https://github.com/Roeun-Chanthou/WingBank-Clone-Flutter' }
+                        ]
+                    }
+                ];
+
+                const skillCategories = [
+                    {
+                        title: 'Frontend & Mobile',
+                        skills: 'Flutter, Dart, UI/UX, Animations, Responsive Layouts, Figma',
+                        aos: 'fade-right'
+                    },
+                    
+                    {
+                        title: 'Databases',
+                        skills: 'MySQL, PostgreSQL, Firestore, SQLite',
+                        aos: 'fade-right'
+                    },
+                    {
+                        title: 'Tools',
+                        skills: 'Git, GitHub',
+                        aos: 'fade-left'
+                    }
+                ];
+
+                const contactLinks = [
+                    { label: 'Email', url: 'mailto:roeunchanthou1401@gmail.com' },
+                    { label: 'LinkedIn', url: 'https://linkedin.com/in/roeun-chanthou' },
+                    { label: 'GitHub', url: 'https://github.com/Roeun-Chanthou' },
+                    { label: 'Facebook', url: 'https://www.facebook.com/profile.php?id=100027840241518' }
+                ];
+
+                const socialLinks = [
+                    {
+                        label: 'Email',
+                        url: 'mailto:roeunchanthou1401@gmail.com',
+                        icon: '<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2l-8 5-8-5V6l8 5 8-5z"/>'
+                    },
+                    {
+                        label: 'LinkedIn',
+                        url: 'https://linkedin.com/in/roeun-chanthou',
+                        icon: '<path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.75 14.5v-6.75h-2.25V17.5h2.25zm-1.125-7.875c.75 0 1.375-.625 1.375-1.375S8.875 7 8.125 7 6.75 7.625 6.75 8.375s.625 1.375 1.375 1.375zm7.5 7.875V14h2.25v3.5h-2.25zm0-5.25c0-1.375 1.125-2.5 2.5-2.5.625 0 1.125.25 1.5.625V7h-2.25v3.5h2.25v1.125c-.375.375-.875.625-1.5.625-1.375 0-2.5-1.125-2.5-2.5z"/>'
+                    },
+                    {
+                        label: 'GitHub',
+                        url: 'https://github.com/Roeun-Chanthou',
+                        icon: '<path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.49 2.28 1.06 2.84.81.09-.65.35-1.06.64-1.3-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.52.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.16.59.67.5A10 10 0 0 0 22 12 10 10 0 0 0 12 2z"/>'
+                    },
+                    {
+                        label: 'Facebook',
+                        url: 'https://www.facebook.com/ly.hu.981240?mibextid=LQQJ4d',
+                        icon: '<path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8v-7h-2.4v-2.8h2.4v-2.1c0-2.4 1.47-3.7 3.6-3.7.72 0 1.44.06 2.16.18v2.52h-1.44c-1.14 0-1.36.54-1.36 1.33v1.77h2.76l-.36 2.8h-2.4v7c4.56-.93 8-4.96 8-9.8z"/>'
+                    }
+                ];
+
+                // Methods
+                const toggleTheme = () => {
+                    isDark.value = !isDark.value;
+                    localStorage.setItem('theme-dark', isDark.value ? '1' : '0');
+                };
+
+                const getSectionTitle = (title) => {
+                    const titles = {
+                        cyber: {
+                            'About': '[SYSTEM_PROFILE]',
+                            'Projects': '[PROJECTS]',
+                            'Skills': '[TECH_STACK]',
+                            'Contact': '[PING]'
+                        },
+                        modern: {
+                            'About': 'About Me',
+                            'Projects': 'My Projects',
+                            'Skills': 'Technical Skills',
+                            'Contact': 'Get In Touch'
+                        },
+                        neon: {
+                            'About': '{ About }',
+                            'Projects': '< Projects />',
+                            'Skills': '/* Skills */',
+                            'Contact': 'Connect()'
+                        },
+                        minimal: {
+                            'About': 'About',
+                            'Projects': 'Projects',
+                            'Skills': 'Skills',
+                            'Contact': 'Contact'
+                        }
+                    };
+                    return titles[currentTemplate.value][title] || title;
+                };
+
+                const getSectionTitleClasses = () => {
+                    return [
+                        isDark.value ? 'text-cyan-400' : 'text-gray-800',
+                        currentTemplate.value === 'cyber' ? 'font-mono' : 'font-inter',
+                        currentTemplate.value === 'neon' ? 'gradient-text' : ''
+                    ];
+                };
+
+                const getHeroClasses = () => {
+                    const baseClasses = ['relative'];
+                    
+                    if (currentTemplate.value === 'cyber') {
+                        baseClasses.push(
+                            isDark.value 
+                                ? 'bg-gradient-to-br from-black to-gray-900' 
+                                : 'bg-gradient-to-br from-gray-100 to-white'
+                        );
+                    } else if (currentTemplate.value === 'neon') {
+                        baseClasses.push('bg-black');
+                    } else if (currentTemplate.value === 'minimal') {
+                        baseClasses.push(
+                            isDark.value 
+                                ? 'bg-gray-900' 
+                                : 'bg-white'
+                        );
+                    } else {
+                        baseClasses.push(
+                            isDark.value 
+                                ? 'bg-gradient-to-br from-blue-900 to-purple-900' 
+                                : 'bg-gradient-to-br from-blue-50 to-purple-50'
+                        );
+                    }
+                    
+                    return baseClasses;
+                };
+
+                const getButtonClasses = (type) => {
+                    const baseClasses = [];
+                    
+                    if (type === 'primary') {
+                        if (currentTemplate.value === 'neon') {
+                            baseClasses.push('bg-gradient-to-r from-pink-500 to-cyan-500 text-white hover:from-pink-600 hover:to-cyan-600');
+                        } else if (currentTemplate.value === 'minimal') {
+                            baseClasses.push(
+                                isDark.value 
+                                    ? 'bg-white text-black hover:bg-gray-200' 
+                                    : 'bg-black text-white hover:bg-gray-800'
+                            );
+                        } else {
+                            baseClasses.push('bg-cyan-500 text-black hover:bg-cyan-400');
+                        }
+                    } else {
+                        if (currentTemplate.value === 'neon') {
+                            baseClasses.push('bg-black border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black');
+                        } else if (currentTemplate.value === 'minimal') {
+                            baseClasses.push(
+                                isDark.value 
+                                    ? 'bg-gray-800 text-white hover:bg-gray-700' 
+                                    : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+                            );
+                        } else {
+                            baseClasses.push(
+                                isDark.value 
+                                    ? 'bg-gray-800 text-cyan-300 hover:bg-gray-700' 
+                                    : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+                            );
+                        }
+                    }
+                    
+                    return baseClasses;
+                };
+
+                const getProjectCardClasses = () => {
+                    const baseClasses = [];
+                    
+                    if (currentTemplate.value === 'cyber') {
+                        baseClasses.push('bg-black border-2 border-cyan-500/50 hover:shadow-cyan-500/50');
+                    } else if (currentTemplate.value === 'neon') {
+                        baseClasses.push('bg-black border border-pink-500/50 hover:shadow-pink-500/50 glass');
+                    } else if (currentTemplate.value === 'minimal') {
+                        baseClasses.push(
+                            isDark.value 
+                                ? 'bg-gray-800 border border-gray-700' 
+                                : 'bg-white border border-gray-200 shadow-lg'
+                        );
+                    } else {
+                        baseClasses.push(
+                            isDark.value 
+                                ? 'bg-gray-800 border border-blue-500/50 hover:shadow-blue-500/50' 
+                                : 'bg-white border border-gray-200 shadow-lg hover:shadow-xl'
+                        );
+                    }
+                    
+                    baseClasses.push('rounded-lg shadow-lg');
+                    return baseClasses;
+                };
+
+                const handleButtonClick = (button) => {
+                    switch (button.action) {
+                        case 'contact':
+                            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                            break;
+                        case 'download':
+                            downloadCV();
+                            break;
+                        case 'github':
+                            window.open('https://github.com/Roeun-Chanthou', '_blank');
+                            break;
+                    }
+                };
+
+                const downloadCV = () => {
+                    // Create a temporary link to download CV
+                    const link = document.createElement('a');
+                    link.href = 'roeun_chanthou_flutter_developer.pdf';
+                    link.download = 'roeun_chanthou_flutter_developer.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                };
+
+                // Typing animation
+                const typeText = () => {
+                    const texts = typedTexts[currentTemplate.value];
+                    const currentText = texts[typedIndex.value];
+                    
+                    if (isDeleting.value) {
+                        currentTypedText.value = currentText.substring(0, charIndex.value - 1);
+                        charIndex.value--;
+                        
+                        if (charIndex.value === 0) {
+                            isDeleting.value = false;
+                            typedIndex.value = (typedIndex.value + 1) % texts.length;
+                        }
+                    } else {
+                        currentTypedText.value = currentText.substring(0, charIndex.value + 1);
+                        charIndex.value++;
+                        
+                        if (charIndex.value === currentText.length) {
+                            isDeleting.value = true;
+                            setTimeout(() => {}, 1500); // Pause before deleting
+                        }
+                    }
+                };
+
+                // Watchers
+                watch(currentTemplate, (newTemplate) => {
+                    localStorage.setItem('template', newTemplate);
+                    // Reset typing animation for new template
+                    typedIndex.value = 0;
+                    charIndex.value = 0;
+                    isDeleting.value = false;
+                    currentTypedText.value = '';
+                });
+
+                watch(() => document.documentElement.classList.contains('dark'), (newVal) => {
+                    if (newVal !== isDark.value) {
+                        isDark.value = newVal;
+                    }
+                });
+
+                // Lifecycle
+                onMounted(() => {
+                    // Initialize theme from localStorage
+                    const savedTheme = localStorage.getItem('theme-dark');
+                    isDark.value = savedTheme === null ? true : savedTheme === '1';
+                    
+                    // Initialize template from localStorage
+                    const savedTemplate = localStorage.getItem('template');
+                    if (savedTemplate) {
+                        currentTemplate.value = savedTemplate;
+                    }
+                    
+                    // Apply theme to document
+                    document.documentElement.classList.toggle('dark', isDark.value);
+                    
+                    // Initialize AOS
+                    AOS.init({
+                        once: true,
+                        duration: 700,
+                        offset: 80
+                    });
+                    
+                    // Start typing animation
+                    setInterval(typeText, 100);
+                    
+                    // Smooth scrolling for anchor links
+                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                        anchor.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            const target = document.querySelector(this.getAttribute('href'));
+                            if (target) {
+                                target.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                                mobileMenuOpen.value = false;
+                            }
+                        });
+                    });
+                });
+
+                // Watch isDark to update document class
+                watch(isDark, (newVal) => {
+                    document.documentElement.classList.toggle('dark', newVal);
+                });
+
+                return {
+                    // State
+                    isDark,
+                    currentTemplate,
+                    mobileMenuOpen,
+                    currentTypedText,
+                    
+                    // Data
+                    navigation,
+                    heroButtons,
+                    projects,
+                    skills,
+                    skillCategories,
+                    contactLinks,
+                    socialLinks,
+                    
+                    // Computed
+                    aboutText,
+                    contactText,
+                    
+                    // Methods
+                    toggleTheme,
+                    getSectionTitle,
+                    getSectionTitleClasses,
+                    getHeroClasses,
+                    getButtonClasses,
+                    getProjectCardClasses,
+                    handleButtonClick,
+                    downloadCV
+                };
+            }
+        }).mount('#app');
+    </script>
 </body>
-
 </html>
